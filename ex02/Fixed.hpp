@@ -15,12 +15,16 @@ class Fixed
 
 		Fixed&	operator=(Fixed const &rhs);
 		Fixed	operator+(Fixed const &rhs);
+		Fixed	operator*(Fixed const &rhs);
+
 		bool	operator>(Fixed const &rhs);
 		bool	operator<(Fixed const &rhs);
 		bool	operator<=(Fixed const &rhs);
 		bool	operator>=(Fixed const &rhs);
 		bool	operator==(Fixed const &rhs);
 		bool	operator!=(Fixed const &rhs);
+
+
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);

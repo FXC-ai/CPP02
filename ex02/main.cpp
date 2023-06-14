@@ -27,8 +27,11 @@ int main(void)
 
 	bool r = b != a;
 
-	std::cout << "r = " << r << std::endl;
+	std::cout << "r = " << r <<std::endl;
 
+
+	c = a * b;
+	std::cout << "a * b = " << c <<std::endl;
 
 	return 0;
 }
