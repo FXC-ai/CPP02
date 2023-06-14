@@ -7,12 +7,16 @@ class Fixed
 {
 	public:
 		Fixed();
-		Fixed(int n);
+		Fixed(int const n);
+		Fixed(float const n);
 		Fixed(Fixed const &src);
 		~Fixed();
+
 		Fixed&	operator=(Fixed const &rhs);
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
+		float	toFloat(void) const;		
+		int		toInt(void) const;
 
 	private:
 		int			_RawBits;
