@@ -12,8 +12,6 @@ Fixed::Fixed() : _RawBits(0)
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(int n) : _RawBits(n) {}
-
 Fixed::Fixed(Fixed const &src)
 {
 	std::cout << "Copy constructor called" << std::endl;

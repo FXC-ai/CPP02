@@ -21,7 +21,7 @@ class Fixed
 
 	private:
 		int					_RawBits;
-		static int	const	_IndComma(8);
+		static int const	_IndComma = 8;
 };
 
 std::ostream &	operator<<(std::ostream& o, Fixed const & i);

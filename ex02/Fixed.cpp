@@ -13,32 +13,12 @@ Fixed::Fixed(int const n)
 
 Fixed::Fixed(float const n)
 {
-	/*
-		Dans le main on instacie un objet ainsi : Fixed c(42.42)
-		Pour obtenir la valeur de RawBit :
-			1) On calcule le_float_en_parametre * 256 = 42.42 * 256 = 10859.52
-			2) On caste 10859.52 dans RawBit, il va stocker 10859
-			MAIS ! Pour plus de precision il serait préférable d'arrondir avant de 
-			caster dans in int.
-			Du coup...
-			2) roundf(10859.52) renvoie 10860
-			3) On caste 10860 dans un RawBit
-	*/
-
 	this->_RawBits = static_cast<int>(roundf(n*(1 << this->_IndComma)));
 	std::cout << "Float constructor called" << std::endl;
-
 }
 
 float Fixed::toFloat(void) const
 {
-	/*
-		Algo :
-			1) On convertit RawBit en un float
-			2) On divise ce float par 256 pour retrouver la valeur initiale
-		C++ se charge de donner à la mantisse et à l'exposant les bonnes valeurs.
-	*/
-
 	return static_cast<float>(this->_RawBits) / (1 << this->_IndComma);
 }
 
@@ -61,7 +41,6 @@ Fixed::~Fixed()
 
 int	Fixed::getRawBits() const
 {
-	(void) this->_IndComma;
 	return this->_RawBits;
 }
 
@@ -77,8 +56,23 @@ Fixed&	Fixed::operator=(Fixed const &rhs)
 	return *this;
 }
 
+Fixed&	Fixed::operator+(Fixed const &rhs)
+{
+	Fixed result;
+	int RawBits;
+
+	RawBits = this->_RawBits + rhs.getRawBits();
+
+	result.setRawBits(RawBits);
+
+	return result;
+}
+
+
+
 std::ostream& operator<<(std::ostream& o, Fixed const & i)
 {
 	o << i.toFloat();
 	return o;
 }
+
