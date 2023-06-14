@@ -18,13 +18,16 @@ int main(void)
 	std::cout << "a = " << a << std::endl;
 
 	Fixed b(42.42f);
-	std::cout << "b = " << std::endl;
+	std::cout << "b = " << b << std::endl;
 
 	Fixed c(0);
 	c = a + b;
 	std::cout << "c = " << c << std::endl;
 	std::cout << "a = " << a << std::endl;
 
+	bool r = b != a;
+
+	std::cout << "r = " << r << std::endl;
 
 
 	return 0;

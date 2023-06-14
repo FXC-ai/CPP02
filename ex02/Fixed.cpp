@@ -56,19 +56,46 @@ Fixed&	Fixed::operator=(Fixed const &rhs)
 	return *this;
 }
 
-Fixed&	Fixed::operator+(Fixed const &rhs)
+Fixed	Fixed::operator+(Fixed const &rhs)
 {
 	Fixed result;
 	int RawBits;
 
 	RawBits = this->_RawBits + rhs.getRawBits();
-
 	result.setRawBits(RawBits);
 
 	return result;
 }
 
+bool	Fixed::operator>(Fixed const &rhs)
+{
+	return this->_RawBits > rhs.getRawBits();
+}
 
+bool	Fixed::operator<(Fixed const &rhs)
+{
+	return this->_RawBits < rhs.getRawBits();
+}
+
+bool	Fixed::operator>=(Fixed const &rhs)
+{
+	return this->_RawBits >= rhs.getRawBits();
+}
+
+bool	Fixed::operator<=(Fixed const &rhs)
+{
+	return this->_RawBits <= rhs.getRawBits();
+}
+
+bool	Fixed::operator==(Fixed const &rhs)
+{
+	return this->_RawBits == rhs.getRawBits();
+}
+
+bool	Fixed::operator!=(Fixed const &rhs)
+{
+	return this->_RawBits != rhs.getRawBits();
+}
 
 std::ostream& operator<<(std::ostream& o, Fixed const & i)
 {
