@@ -87,6 +87,18 @@ Fixed	Fixed::operator+(Fixed const &rhs)
 	return result;
 }
 
+Fixed	Fixed::operator-(Fixed const &rhs)
+{
+	Fixed result;
+	int RawBits;
+
+	RawBits = this->_RawBits - rhs.getRawBits();
+	result.setRawBits(RawBits);
+
+	return result;
+}
+
+
 Fixed	Fixed::operator*(Fixed const &rhs)
 {
 	Fixed	result;
