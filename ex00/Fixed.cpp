@@ -1,5 +1,7 @@
 #include "Fixed.hpp"
 
+const int Fixed::_IndComma = 8;
+
 Fixed&	Fixed::operator=(Fixed const &rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;

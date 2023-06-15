@@ -45,7 +45,6 @@ class Fixed
 	private:
 		int					_RawBits;
 		static int const	_IndComma = 8;
-		/*Est ce bien ok de faire ça ? î*/
 };
 
 std::ostream &	operator<<(std::ostream& o, Fixed const & i);
