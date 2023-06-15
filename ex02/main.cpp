@@ -13,7 +13,6 @@ int main(void)
 	// std::cout << b << std::endl;
 	// std::cout << Fixed::max( a, b ) << std::endl;
 
-
 	Fixed a(42.42f);
 	std::cout << "a = " << a << std::endl;
 
@@ -26,12 +25,19 @@ int main(void)
 	std::cout << "a = " << a << std::endl;
 
 	bool r = b != a;
-
-	std::cout << "r = " << r <<std::endl;
-
+	std::cout << "b != a" << r <<std::endl;
 
 	c = a * b;
 	std::cout << "a * b = " << c <<std::endl;
+
+	c = a / b;
+	std::cout << "a / b = " << c <<std::endl;
+
+	Fixed e(33);
+	Fixed f(11.1f);
+
+	c = e / f;
+	std::cout << "33 / 11.1 = " << c <<std::endl;
 
 	return 0;
 }

@@ -99,14 +99,29 @@ Fixed	Fixed::operator+(Fixed const &rhs)
 
 Fixed	Fixed::operator*(Fixed const &rhs)
 {
-	Fixed result;
-	int RawBits;
+	Fixed	result;
+	int		RawBits;
 
-	RawBits = this->_RawBits * rhs.getRawBits();
-	result.setRawBits(RawBits / (1 << _IndComma));
+	RawBits = (this->_RawBits * rhs.getRawBits()) / (1 << _IndComma);
+	result.setRawBits(RawBits);
 
 	return result;
 }
+
+Fixed	Fixed::operator/(Fixed const &rhs)
+{
+	Fixed result(this->toFloat() / rhs.toFloat());
+	return result;
+}
+
+Fixed&	Fixed::operator++()
+{
+	this->_RawBits += (1 << _IndComma);
+
+
+	return *this;	
+}
+
 
 std::ostream& operator<<(std::ostream& o, Fixed const & i)
 {
